@@ -103,7 +103,7 @@ function init(){
 
 function write(){
   textSize(24);
-  text('唔西迪西下午好！', 0, 200);
+  text('唔西迪西下午好!', 0, 200);
   fill(0, 1, 1);
 }
 
