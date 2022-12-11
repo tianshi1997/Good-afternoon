@@ -49,7 +49,7 @@ class Flower{
     pushPop(() => {
       noFill();
       strokeWeight(this.l2*2 + 1);
-      stroke(.35, 1, this.l2*.5 + .5);
+      stroke(140, 1, this.l2*.5 + .5);
       translate(this.x, size);
       let a = PI;
       if (this.x <= 0) a += PI/2;
@@ -59,17 +59,17 @@ class Flower{
   render(){
     pushPop(() => {
       noStroke();
-      fill(this.l2*.2 + .8);
+      fill(this.l2*.2*360 + .8);
       translate(this.x, this.y);
       rotate(this.a);
       scale(this.s*this.squash, this.s);
       
       for (let j = 0; j < 2; j++)
-      for (let i = 0; i < 5; i++){
+      for (let i = 0; i < 6; i++){
         let a = i*TAU/5;
         let s = this.weights[i];
         let b = (this.l2*.2 + .8)*(s*.1 + .9)
-        fill(this.hue, .1*this.l2, b);
+        fill(185, 1, 1);
         if (j == 0){
           s += .05;
           fill(0);
@@ -78,7 +78,7 @@ class Flower{
       }
       fill(0);
       ellipse(0, 0, .7*(this.weights[0] + .05));
-      fill(.15, 1, 1*(this.l2*.2 + .8));
+      fill(70, 0.65, 1*(this.l2*.2 + .8));
       ellipse(0, 0, .7*this.weights[0]);
     })
   }
@@ -87,7 +87,7 @@ class Flower{
 function setup (){
   pixelDensity(1);
   createCanvas();
-  colorMode(HSB, 1, 1, 1);
+  colorMode(HSB, 360, 1, 1);
   windowResized();
 }
 
@@ -103,8 +103,10 @@ function init(){
 
 function write(){
   textSize(24);
+  text('之煜本命年快乐！', 0, 200);
   fill(0, 1, 1);
 }
+
 
 function draw(){
   background(100);
@@ -112,6 +114,7 @@ function draw(){
   flowers.map(f => f.update());
   flowers.map(f => f.renderStem());
   flowers.map(f => f.render());
+  write();
 }
 
 function windowResized(){
