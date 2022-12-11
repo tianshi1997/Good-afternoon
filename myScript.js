@@ -103,7 +103,6 @@ function init(){
 
 function write(){
   textSize(24);
-  text('!', 0, 200);
   fill(0, 1, 1);
 }
 
@@ -113,7 +112,6 @@ function draw(){
   flowers.map(f => f.update());
   flowers.map(f => f.renderStem());
   flowers.map(f => f.render());
-  write();
 }
 
 function windowResized(){
